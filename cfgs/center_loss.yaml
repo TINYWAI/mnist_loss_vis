@@ -1,0 +1,29 @@
+EXP_NAME: center_loss_R30_out_force_0.1
+SEED: 0
+
+EPOCHS: 100
+BATCH_SIZE: 256
+BASE_LR: 0.001
+
+LR_UPDATE: 20
+LR_MULTS: 0.8
+
+MOMENTUM: 0.9
+WEIGHT_DECAY: 0.0005
+
+MAIN_LOSS:
+    TYPE: a-softmax
+    M: 4
+    BASE: 0
+    LAMBDA_MIN: 0
+    GAMMA: 0.00003
+    POWER: 5
+ADDITIONAL_LOSS:
+    TYPE: center_loss
+    METRIC_MODE: pairwise
+    FORCE: force
+    CENTER_LR: 0.5
+    SPHERE:
+        TYPE: OUT
+        R: 30
+    LOSS_WEIGHT: 0.1
